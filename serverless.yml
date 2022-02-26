@@ -1,0 +1,36 @@
+service: serverless-api
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:ListBucket"
+      Resource: "arn:aws:s3:::lki84u7lb27y4qji"
+    - Effect: "Allow"
+      Action:
+        - "s3:PutObject"
+      Resource: "arn:aws:s3:::lki84u7lb27y4qji/*"
+
+functions:
+  postFile:
+    handler: handler.postFile
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
+  getFile:
+    handler: handler.getFile
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+
+plugins:
+  - serverless-offline

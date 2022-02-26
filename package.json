@@ -1,0 +1,24 @@
+{
+  "name": "serverless-api",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-db": "node db/create-db.js"
+  },
+  "keywords": [],
+  "author": "Ian Kibet <ikibet@ya.ru>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "async": "^3.2.3",
+    "aws-sdk": "^2.1082.0",
+    "busboy": "^1.4.0",
+    "dotenv": "^16.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/async": "^3.2.12",
+    "serverless-offline": "^8.5.0"
+  }
+}
